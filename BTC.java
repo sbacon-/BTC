@@ -6,7 +6,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 
-public class Main {
+public class BTC {
 	public static void main(String[] args) {
 		try {
 			readFromWeb("https://www.google.com/search?q=btc+price");

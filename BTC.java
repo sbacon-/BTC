@@ -9,7 +9,8 @@ import java.net.URLConnection;
 public class BTC {
 	public static void main(String[] args) {
 		try {
-			readFromWeb("https://www.google.com/search?q=btc+price");
+			String credibleSoucre = "https://www.google.com/finance/quote/BTC-USD";
+            readFromWeb(credibleSoucre);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -22,11 +23,10 @@ public class BTC {
         try( BufferedReader br = new BufferedReader(new InputStreamReader(is))) {
             String line;
             while ((line = br.readLine()) != null) {
-            	String[] list = {};
-            	String[] list2 = {};
-            	if(line.contains("data-exchange-rate"))list= line.split("data-exchange-rate=\"");
-            	if(list.length>0) list2 = list[1].split("\"");
-            	if(list2.length>0)System.out.println(list2[0]);
+            	if(line.contains("YMlKec fxKbKc")) {
+                    String ymlkec = line.split("\"YMlKec fxKbKc\"")[1];
+                    System.out.println(ymlkec.split("/div")[0]);
+                }
             }
         }
         catch (MalformedURLException e) {
